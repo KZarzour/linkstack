@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 RUN rm -rf /var/www/html && mkdir -p /var/www/html
 
 # Clone LinkStack into the web root
-RUN git clone https://github.com/LinkStackOrg/LinkStack.git /var/www/html
+RUN git clone https://github.com/LinkStackOrg/LinkStack.git /var/www/html && echo "nocache-$(date +%s)"
 
 WORKDIR /var/www/html
 
