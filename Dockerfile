@@ -31,6 +31,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 80
 
-RUN echo "LISTING APP CONTENTS:" && ls -R /var/www/html
+RUN echo "LISTING ALL CONTENTS:" && ls -lah /var/www/html && ls -R /var/www/html
 
 CMD ["supervisord", "-n"]
