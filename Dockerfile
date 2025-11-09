@@ -5,12 +5,15 @@ RUN apt-get update && apt-get install -y \
     nginx supervisor git unzip \
     && rm -rf /var/lib/apt/lists/*
 
+# Clean the default web root (php image includes a default index)
+RUN rm -rf /var/www/html/*
+
 # Install LinkStack
 RUN git clone https://github.com/LinkStackOrg/LinkStack.git /var/www/html
 
 WORKDIR /var/www/html
 
-# Create environment file
+# Copy example environment file
 RUN cp .env.example .env
 
 # Fix permissions
